@@ -21,7 +21,7 @@ function base(){return new URL('./',document.baseURI).pathname.replace(/\/+$/,''
 function rel(){var p=location.pathname.replace(/\/+$/,''),b=base();return p.indexOf(b)===0?p.slice(b.length).replace(/^\/+/,''):p.replace(/^\/+/,'')}
 function title(r){var a=r.split('/');if(a.length>1&&a[1])return cap(a[1]);return T[a[0]]||cap(a[0])}
 function apply(){var m=document.querySelector('main');if(!m)return;var r=rel(),ph=document.getElementById('soon-ph');
-var top=r.split('/')[0];if(!r||r==='index.html'||['financial-planning'].indexOf(top)>-1){m.style.display='';if(ph)ph.remove();return;}
+var top=r.split('/')[0];if(!r||r==='index.html'||['financial-planning','tools','resources','faq','request-an-introduction'].indexOf(top)>-1){m.style.display='';if(ph)ph.remove();return;}
 m.style.display='none';var dt=document.title.split('|')[0].trim();var t=(dt&&!/^haven rock$/i.test(dt))?dt:title(r);
 if(!ph){ph=document.createElement('section');ph.id='soon-ph';m.parentNode.insertBefore(ph,m.nextSibling);}
 if(ph.getAttribute('data-r')===r+t)return;ph.setAttribute('data-r',r+t);
